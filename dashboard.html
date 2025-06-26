@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepfake Detection - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Deepfake Detection Dashboard</h1>
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+    </header>
+    
+    <main class="dashboard-container">
+        <div class="options-container">
+            <div class="option-card" id="detectionOption">
+                <h2>Upload Deepfake Detection</h2>
+                <p>Upload an image to check if it's a deepfake</p>
+            </div>
+            
+            <div class="option-card" id="precautionsOption">
+                <h2>Deepfake Precautions</h2>
+                <p>Learn how to identify and protect against deepfakes</p>
+            </div>
+        </div>
+        
+        <!-- Detection Section (hidden by default) -->
+        <div id="detectionSection" class="hidden">
+            <div class="back-container">
+                <button id="backToOptions" class="back-btn">← Back to options</button>
+            </div>
+            
+            <div class="upload-container">
+                <h2>Upload Image for Deepfake Detection</h2>
+                <input type="file" id="imageUpload" accept="image/*" class="file-input">
+                <label for="imageUpload" class="file-label">Choose an image</label>
+                <button id="uploadBtn" class="upload-btn" disabled>Upload & Analyze</button>
+                
+                <div class="progress-container hidden" id="progressContainer">
+                    <div class="progress-bar" id="progressBar"></div>
+                    <span id="progressText">0%</span>
+                </div>
+            </div>
+            
+            <div class="results-container hidden" id="resultsContainer">
+                <div class="image-preview">
+                    <h3>Uploaded Image</h3>
+                    <img id="uploadedImage" src="#" alt="Uploaded image">
+                </div>
+                
+                <div class="result-display">
+                    <h3>Analysis Result</h3>
+                    <div id="resultBox" class="result-box">
+                        <p id="resultText">Waiting for analysis...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Precautions Section (hidden by default) -->
+        <div id="precautionsSection" class="hidden">
+            <div class="back-container">
+                <button id="backToOptions2" class="back-btn">← Back to options</button>
+            </div>
+            
+            <div class="precautions-content">
+                <h2>Deepfake Precautions</h2>
+                
+                <section class="precaution-item">
+                    <h3>Common Warning Signs</h3>
+                    <ul>
+                        <li><strong>Unnatural eye movement:</strong> Lack of blinking or strange eye movements</li>
+                        <li><strong>Facial distortions:</strong> Blurring or warping around the face, especially when moving</li>
+                        <li><strong>Inconsistent lighting:</strong> Shadows or highlights that don't match the environment</li>
+                        <li><strong>Audio-visual mismatch:</strong> Lip movements that don't sync perfectly with speech</li>
+                        <li><strong>Unnatural posture:</strong> Stiff or awkward head and body movements</li>
+                    </ul>
+                </section>
+                
+                <section class="precaution-item">
+                    <h3>Verification Tools</h3>
+                    <ul>
+                        <li><strong>Reverse image search:</strong> Use Google Images or TinEye to find original sources</li>
+                        <li><strong>Metadata analysis:</strong> Check EXIF data for inconsistencies</li>
+                        <li><strong>Forensic analysis tools:</strong> Use tools like FotoForensics or InVID</li>
+                        <li><strong>Blockchain verification:</strong> Some platforms use blockchain to verify authentic media</li>
+                    </ul>
+                </section>
+                
+                <section class="precaution-item">
+                    <h3>Best Practices</h3>
+                    <ul>
+                        <li>Be skeptical of emotionally charged content</li>
+                        <li>Verify information from multiple trusted sources</li>
+                        <li>Check the date and context of the media</li>
+                        <li>Look for official confirmations or debunks</li>
+                        <li>Educate yourself and others about deepfake technology</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.985.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
